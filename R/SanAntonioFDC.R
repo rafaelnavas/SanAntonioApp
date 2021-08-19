@@ -145,8 +145,6 @@ SanAntonioFDC = function(){
       dd = sqrt((xu - xy_utm[,1])^2 + (yu - xy_utm[,2])^2)
       mm = order(dd)[1]
       
-      fig = plotly::plotly_empty()
-      
       mesN = match(input$mes,meses)
       par(mar=c(4,4,1,1))
       plot(x = 1000*flow[-1,mm], y = 100:1, type="l", log="x",
@@ -156,6 +154,7 @@ SanAntonioFDC = function(){
       lines(x = qtl[-1,mm,mesN], y = 100:1,col="red",lwd=2)
       abline(v = c(1e-4,1e-3,1e-2,1e-1,1,10,100,1000,10000,100000),col=8,lty=2)
       abline(h = seq(0,100,20),col=8,lty=2)
+      legend("topright", c("Anual 1991-2020",paste(input$mes)),col=c(4,2),lty=1,lwd=2)
       
     })
   }
